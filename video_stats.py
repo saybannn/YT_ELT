@@ -1,8 +1,17 @@
 # Importing the requests library
 import requests
 
-# Importing a secret API-key from the root of the project
-from api_key import API_KEY
+# Importing OS library to read the .env variables
+import os
+
+# Importing the load_dotenv function to load variables from an .env file
+from dotenv import load_dotenv
+
+# Reads the .env file and add its values to the environment
+load_dotenv(dotenv_path='./.env')
+
+# Get the value of API_KEY from environment variables
+API_KEY = os.getenv('API_KEY')
 
 
 def get_playlist_id(CHANNEL_HANDLE: str) -> str:
